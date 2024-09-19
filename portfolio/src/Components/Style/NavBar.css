@@ -1,0 +1,33 @@
+.desktopMenu {
+    display: flex;
+    justify-content: center; /* Aligns the items to the center */
+    align-items: center; /* Aligns the items vertically (optional) */
+    position: fixed; /* Fixes the navbar at the top of the viewport */
+    top: 0; /* Sticks the navbar to the top of the page */
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ensures the navbar stays above other content */
+    padding-right: 50px; /* Add some padding to the right */
+    width: 60%; /* Occupies 70% of the page width */
+    margin: 0 auto; /* Centers the content horizontally */
+    padding: 20px; /* Adds padding inside the container */
+    background-color: rgba(106, 7, 99, 0.2); /* Semi-transparent white background */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 3%;
+  
+  }
+  
+  .desktopMenuItem {
+    margin-left: 30px; /* Space between menu items */
+    font-size: 18px; /* Font size for the links */
+    text-transform: uppercase; /* Make the text uppercase */
+    cursor: pointer; /* Change cursor on hover */
+    color: #ffffff; /* Text color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .desktopMenuItem:hover {
+    color: yellow; /* Change color on hover */
+  }
+  

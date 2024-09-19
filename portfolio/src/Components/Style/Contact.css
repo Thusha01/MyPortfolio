@@ -1,0 +1,74 @@
+.Contact {
+    text-align: center;
+    margin: 100px auto;
+    padding: 20px;
+    width: 60%;
+    margin: 10% auto;
+}
+
+.contactContent {
+    margin-top: 5%;
+    padding: 50px;
+    background-color: rgba(106, 7, 99, 0.2);
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.0rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: justify;
+}
+
+.contact-info h4 {
+    display: flex;
+    align-items: center;
+    font-size: 1.0rem;
+    color: #ffffff;
+}
+
+.contact-info p {
+    font-size: 0.7rem;
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+.icon {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.btn-icon {
+    font-size: 2.5rem;
+    padding-left: 15px;
+}
+
+a.contact-btn {
+    background-color: #ffffff;
+    color: rgb(4, 4, 4);
+    border-radius: 20px;
+    border: none;
+    width: 50%;
+    margin-left: 25%;
+    padding: 5px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Fix missing px for rounded corners */
+}
+
+a.contact-btn:hover {
+    background-color: #4b054a;
+    color: white;
+}
