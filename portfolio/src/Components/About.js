@@ -10,7 +10,7 @@ function About() {
   useEffect(() => {
     const roleInterval = setInterval(() => {
       setCurrentRole((prevRole) => (prevRole + 1) % roles.length);
-    }, 3000); // 3 seconds
+    }, 2000); // 3 seconds
 
     // Cleanup the interval on component unmount
     return () => clearInterval(roleInterval);
