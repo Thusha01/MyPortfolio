@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import project1 from '../Assets/project1.png';
 import project2 from '../Assets/project2.png';
 import project3 from '../Assets/project3.jpg';
-import { FaReact } from 'react-icons/fa'; // React icon
-import { SiMicrosoftsqlserver, SiDotnet, SiBootstrap, SiArduino } from 'react-icons/si'; // Icons
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'; // Icons for Next/Back
+import { FaReact } from 'react-icons/fa';
+import { SiMicrosoftsqlserver, SiDotnet, SiBootstrap, SiArduino } from 'react-icons/si';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import './Style/Projects.css';
 
 function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false); // New state for hover detection
+
   const projects = [
     {
       img: project1,
@@ -49,20 +51,26 @@ function Projects() {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
   };
 
-  // Automatically change projects every 5 seconds
+  // Automatically change projects every 5 seconds if not hovered
   useEffect(() => {
     const interval = setInterval(() => {
-      handleNext();
-    }, 3000); // Change project every 5 seconds
+      if (!isHovered) { // Only change if not hovered
+        handleNext();
+      }
+    }, 3000); // Change project every 3 seconds
 
     return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+  }, [isHovered]); // Re-run effect if isHovered changes
 
   return (
     <div className="project">
       <h1>My Projects</h1>
       <div className="projectContent">
-        <div className="pro">
+        <div
+          className="pro"
+          onMouseEnter={() => setIsHovered(true)} // Set isHovered to true when mouse enters
+          onMouseLeave={() => setIsHovered(false)} // Set isHovered to false when mouse leaves
+        >
           <img src={projects[currentIndex].img} alt={projects[currentIndex].alt} />
           <h5>{projects[currentIndex].tag}</h5>
           <h3>{projects[currentIndex].title}</h3>

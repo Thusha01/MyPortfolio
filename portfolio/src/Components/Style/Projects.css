@@ -1,6 +1,7 @@
 .project {
-  margin-top: 5%;
+  margin-top: 10%;
   text-align: center;
+
 }
 
 .project h1 {
@@ -21,6 +22,7 @@
   padding: 20px;
   border-radius: 10px;
   transition: all 0.3s ease;
+  margin-top: 7%;
 }
 
 .pro {
@@ -73,8 +75,8 @@
 }
 
 .pro:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 18px 26px rgba(255, 255, 255, 0.3);
+  transform: translateY(-15px);
+  box-shadow: 0 18px 26px rgba(0, 0, 0, 0.3);
 }
 
 /* GitHub Button Styling */

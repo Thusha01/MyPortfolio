@@ -9,7 +9,7 @@
     text-align: center; /* Center the text */
     position: relative; /* For precise placement */
     top: 15%; /* Pushes content down a little */
-    margin-top: 25%;
+    margin-top: 24%;
     line-height: 40px;
 
   }
@@ -87,8 +87,8 @@
       font-size: 16px;
     }
     .role{
-      letter-spacing: 1px;
-      font-size: 25px;
+      letter-spacing: 0px;
+      font-size: 18px;
     }
   }
   
