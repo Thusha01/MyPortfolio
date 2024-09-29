@@ -53,7 +53,7 @@ function Projects() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 5000); // Change project every 5 seconds
+    }, 3000); // Change project every 5 seconds
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
