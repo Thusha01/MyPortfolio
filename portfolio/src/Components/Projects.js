@@ -36,7 +36,7 @@ function Projects() {
       title: 'Customized Popcorn Maker',
       description: 'We developed a customized Arduino-based popcorn maker that reduces manpower, enhances product efficiency, and increases customer satisfaction.',
       tech: [<SiArduino title="Arduino" className="icon" />],
-      link: 'https://github.com/your-profile/popcorn-maker',
+      link: 'https://github.com/Thusha01/Customized_Popcorn_Maker',
       tag: '1st Year Hardware Project'
     }
   ];
