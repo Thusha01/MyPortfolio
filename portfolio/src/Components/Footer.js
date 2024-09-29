@@ -6,7 +6,7 @@ function Footer() {
   return (
     <div className="footer">
       <div className="copyright">
-        <p> Created by THUSHARAGA V. &copy; 2024 All rights reserved</p> {/* Added the copyright symbol */}
+        <p> Created by THUSHARAGA V. &copy;. 2024 All rights reserved.</p> {/* Added the copyright symbol */}
       </div>
       <div className="icons">
         <a href="https://github.com/thusharagav" target="_blank" rel="noopener noreferrer" className="icon-link">

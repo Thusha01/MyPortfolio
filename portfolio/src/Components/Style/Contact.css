@@ -4,53 +4,65 @@
     padding: 20px;
     width: 60%;
     margin: 10% auto;
+    transition: all 0.3s ease;
 }
 
+/* Content Box Styling */
 .contactContent {
     margin-top: 5%;
     padding: 50px;
     background-color: rgba(106, 7, 99, 0.2);
     box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+    transition: padding 0.3s ease;
 }
 
+/* Heading Styling */
 h1 {
     font-size: 2.5rem;
     color: #ffffff;
     margin-bottom: 20px;
+    transition: font-size 0.3s ease;
 }
 
+/* Paragraph Styling */
 p {
-    font-size: 1.0rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 20px;
     color: #ffffff;
     text-align: justify;
+    transition: font-size 0.3s ease;
 }
 
+/* Contact Info Styling */
 .contact-info h4 {
     display: flex;
     align-items: center;
-    font-size: 1.0rem;
+    font-size: 1rem;
     color: #ffffff;
 }
 
+/* Paragraph inside Contact Info */
 .contact-info p {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
     margin-bottom: 20px;
     padding-left: 30px;
 }
 
+/* Icon Styling */
 .icon {
     margin-right: 10px;
     color: #ffffff;
 }
 
+/* Button Icon Styling */
 .btn-icon {
     font-size: 2.5rem;
     padding-left: 15px;
 }
 
+/* Button Styling */
 a.contact-btn {
     background-color: #ffffff;
     color: rgb(4, 4, 4);
@@ -58,17 +70,73 @@ a.contact-btn {
     border: none;
     width: 50%;
     margin-left: 25%;
-    padding: 5px 20px;
+    padding: 10px 20px;
     font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Remove underline */
-    border-radius: 5px; /* Fix missing px for rounded corners */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
+/* Button Hover Effect */
 a.contact-btn:hover {
     background-color: #4b054a;
     color: white;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Tablet View (up to 768px) */
+@media screen and (max-width: 768px) {
+    .Contact {
+        width: 80%; /* Reduce width for smaller screens */
+    }
+
+    .contactContent {
+        padding: 30px; /* Reduce padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 2rem; /* Decrease heading size */
+    }
+
+    p {
+        font-size: 0.9rem; /* Decrease paragraph text size */
+    }
+
+    a.contact-btn {
+        width: 70%; /* Reduce button width */
+        margin-left: 15%;
+        font-size: 1rem; /* Smaller font size for buttons */
+    }
+}
+
+/* Mobile View (up to 480px) */
+@media screen and (max-width: 480px) {
+    .Contact {
+        width: 90%; /* Almost full width for mobile */
+        margin: 5% auto;
+    }
+
+    .contactContent {
+        padding: 20px; /* Further reduce padding */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Smaller heading for mobile */
+    }
+
+    p {
+        font-size: 0.8rem; /* Decrease paragraph text size */
+    }
+
+    a.contact-btn {
+        width: 80%; /* Full-width button */
+        margin-left: 10%;
+        padding: 8px 15px; /* Smaller padding for buttons */
+        font-size: 0.9rem; /* Smaller font size */
+    }
 }

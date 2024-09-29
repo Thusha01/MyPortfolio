@@ -1,33 +1,138 @@
-.desktopMenu {
-    display: flex;
-    justify-content: center; /* Aligns the items to the center */
-    align-items: center; /* Aligns the items vertically (optional) */
-    position: fixed; /* Fixes the navbar at the top of the viewport */
-    top: 0; /* Sticks the navbar to the top of the page */
+/* Common Styles */
+
+/* .navContainer styles the main navigation container to center the items and ensure it's fixed at the top of the page.
+   The width is set to 60% to make it responsive and the content is centered horizontally using margin. */
+   .navContainer {
+    display: flex; /* Centers the navigation items horizontally */
+    justify-content: center; /* Aligns child elements in the center horizontally */
+    align-items: center; /* Aligns child elements in the center vertically */
+    position: fixed; /* Keeps the navbar fixed at the top of the page */
+    top: 10px;
     left: 0;
     right: 0;
-    z-index: 1000; /* Ensures the navbar stays above other content */
-    padding-right: 50px; /* Add some padding to the right */
-    width: 60%; /* Occupies 70% of the page width */
-    margin: 0 auto; /* Centers the content horizontally */
-    padding: 20px; /* Adds padding inside the container */
-    background-color: rgba(106, 7, 99, 0.2); /* Semi-transparent white background */
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-    border-radius: 10px; /* Rounded corners */
-    margin-top: 3%;
-  
+    z-index: 1000; /* Ensures the navbar stays on top of other elements */
+    padding: 50px 0; /* Adds spacing between the top of the page and the navbar */
+    width: 100%; /* Occupies 60% of the total page width for a compact layout */
+    margin: 0 auto; /* Centers the navbar container horizontally */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Adds smooth animation when the navbar appears/disappears */
   }
   
-  .desktopMenuItem {
-    margin-left: 30px; /* Space between menu items */
-    font-size: 18px; /* Font size for the links */
-    text-transform: uppercase; /* Make the text uppercase */
-    cursor: pointer; /* Change cursor on hover */
-    color: #ffffff; /* Text color */
-    text-decoration: none; /* Remove underline */
+  /* .visible class makes the navbar visible by resetting the Y-axis translation and increasing opacity */
+  .visible {
+    transform: translateY(0); /* Ensures the navbar is in its original position */
+    opacity: 1; /* Makes the navbar fully visible */
   }
   
-  .desktopMenuItem:hover {
-    color: yellow; /* Change color on hover */
+  /* .hidden class hides the navbar by moving it upwards and making it transparent */
+  .hidden {
+    transform: translateY(-100%); /* Moves the navbar above the visible screen area */
+    opacity: 0; /* Makes the navbar invisible */
+  }
+  
+  /* .navItem styles each navigation link item with spacing and hover effects. The uppercase text makes it visually clear. */
+  .navItem {
+    margin-left: 25px; /* Adds spacing between each navigation item */
+    font-size: 18px; /* Sets a readable font size for the nav items */
+    text-transform: uppercase; /* Transforms the text to uppercase for emphasis */
+    padding: 15 px;
+    cursor: pointer; /* Indicates to the user that this element is clickable */
+    color: #000000; /* Sets the text color to black */
+    text-decoration: none; /* Removes the default underline from links */
+    transition: color 0.3s ease; /* Smooth color transition on hover for a subtle effect */
+    width: 100%;
+  }
+  
+  /* Changes the color of the nav item to yellow when hovered over */
+  .navItem:hover {
+    color: yellow; /* Changes the text color to yellow for a visible hover effect */
+  }
+  
+  /* Desktop Menu */
+  
+  /* This media query targets screens larger than 768px (desktop view). 
+     The .menuItems are displayed horizontally with a semi-transparent background and a shadow effect for depth. */
+  @media (min-width: 769px) {
+    .menuItems {
+      display: flex; /* Arranges navigation items horizontally in a row */
+      flex-direction: row; /* Ensures horizontal alignment */
+      justify-content: center; /* Centers the items horizontally within the menu */
+      width: 60%; /* Sets the width of the menu to 60% of the screen width */
+      background-color: rgba(255, 255, 255, 0.8); /* Adds a semi-transparent white background */
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* Creates a subtle shadow to give depth to the menu */
+      border-radius: 10px; /* Rounds the corners of the menu for a modern look */
+      padding: 15px;
+    }
+  }
+  
+  /* Mobile Menu */
+  
+  /* This media query targets screens smaller than 768px (mobile view). 
+     The .menuItems are initially hidden and displayed in a column when the menu is opened, taking up the full screen width. */
+  @media (max-width: 768px) {
+    .menuItems {
+      display: none; /* Hides the menu by default */
+      flex-direction: column; /* Stacks the menu items vertically */
+      align-items: center; /* Centers the items horizontally */
+      position: fixed; /* Fixes the menu in position relative to the screen */
+      top: 60px; /* Positions the menu right below the hamburger icon */
+      right: 0; /* Aligns the menu to the right edge of the screen */
+      background-color: rgba(255, 255, 255, 0.9); /* Gives the menu a semi-transparent white background */
+      width: 100%; /* Makes the menu full width on mobile screens */
+      height: 55vh; /* Makes the menu cover half of the screen height */
+      z-index: 1000; /* Ensures the menu appears above other elements */
+      transition: all 0.3s ease-in-out; /* Adds smooth transitions when the menu opens and closes */
+    }
+  
+    /* When the menu is open, the display is set to flex to show the items */
+    .menuItems.open {
+      display: flex; /* Shows the menu when open */
+    }
+  
+    /* .navItem for mobile view uses a larger font size and more spacing for easier interaction on smaller screens */
+    .navItem {
+      font-size: 24px; /* Increases font size for better readability on small screens */
+      margin: 20px 0; /* Adds more spacing between items vertically */
+      color: rgb(0, 0, 0); /* Sets the text color to black */
+    }
+  
+  /* Styles for the hamburger menu icon, which is always visible on mobile for opening/closing the menu */
+.hamburger {
+  position: fixed; /* Fixes the icon in position */
+  top: 20px; /* Places the icon near the top of the screen */
+  right: 20px; /* Aligns the icon to the right side of the screen */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate interactivity */
+  z-index: 1100; /* Ensures the hamburger menu is on top of other elements */
+  padding: 10px; /* Adds padding around the icon for easier clicking */
+  border-radius: 5px; /* Rounds the corners of the icon container */
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow for depth */
+  display: flex;
+  flex-direction: column;
+  color: #000000;
+
+}
+
+
+  
+    /* Ensures the menu is hidden when not in the "open" state */
+    .menuItems:not(.open) {
+      display: none; /* Hides the menu when it's not opened */
+    }
+  }
+  
+  /* Tablet Menu (Medium screens) */
+  
+  /* This media query targets tablet-sized screens between 768px and 1024px. It adjusts the container width and increases padding 
+     to fit better on medium-sized screens. */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .navContainer {
+      width: 100%; /* Makes the navbar full-width on tablet screens */
+      padding: 15px; /* Adds padding to the container to give more space */
+    }
+  
+    /* Increases the font size slightly for better readability on tablet screens */
+    .navItem {
+      font-size: 20px; /* Slightly larger font size for tablets */
+    }
   }
   

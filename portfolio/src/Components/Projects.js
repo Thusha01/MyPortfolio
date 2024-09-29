@@ -1,60 +1,88 @@
-import React from 'react'
-import project1 from '../Assets/project1.png'
-import project2 from '../Assets/project2.png'
-import project3 from '../Assets/project3.jpg'
+import React, { useState, useEffect } from 'react';
+import project1 from '../Assets/project1.png';
+import project2 from '../Assets/project2.png';
+import project3 from '../Assets/project3.jpg';
 import { FaReact } from 'react-icons/fa'; // React icon
 import { SiMicrosoftsqlserver, SiDotnet, SiBootstrap, SiArduino } from 'react-icons/si'; // Icons
-import './Style/Projects.css'
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'; // Icons for Next/Back
+import './Style/Projects.css';
 
 function Projects() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const projects = [
+    {
+      img: project1,
+      alt: 'Project Management System',
+      title: 'PROXIMA - Project Management System',
+      description: 'A comprehensive web application that efficiently manages users and projects within a company while providing seamless interaction with clients.',
+      tech: [<SiDotnet title="ASP.NET" className="icon" />, <SiMicrosoftsqlserver title="MS SQL" className="icon" />, <FaReact title="React" className="icon" />],
+      link: 'https://github.com/Thusha01?tab=repositories',
+      tag: '2nd Year Group Project'
+    },
+    {
+      img: project2,
+      alt: 'Portfolio',
+      title: 'This Portfolio Website',
+      description: 'I built this website using React.js and Bootstrap.',
+      tech: [<SiBootstrap title="Bootstrap" className="icon" />, <FaReact title="React" className="icon" />],
+      link: 'https://github.com/Thusha01/MyPortfolio',
+      tag: 'Frontend Development'
+    },
+    {
+      img: project3,
+      alt: 'Automatic Popcorn Maker',
+      title: 'Customized Popcorn Maker',
+      description: 'We developed a customized Arduino-based popcorn maker that reduces manpower, enhances product efficiency, and increases customer satisfaction.',
+      tech: [<SiArduino title="Arduino" className="icon" />],
+      link: 'https://github.com/your-profile/popcorn-maker',
+      tag: '1st Year Hardware Project'
+    }
+  ];
+
+  // Function to handle going to the next project
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  };
+
+  // Function to handle going to the previous project
+  const handleBack = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
+  };
+
+  // Automatically change projects every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000); // Change project every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
+
   return (
     <div className="project">
-      <h1>My projects</h1>
+      <h1>My Projects</h1>
       <div className="projectContent">
         <div className="pro">
-          <img src={project1} alt="Project Management System" />
-          <h5>2nd Year Group Project</h5>
-          <h3>PROXIMA - Project Management System</h3>
-          <p>A comprehensive web application that efficiently manages users and projects within a company while providing seamless interaction with clients.</p>
+          <img src={projects[currentIndex].img} alt={projects[currentIndex].alt} />
+          <h5>{projects[currentIndex].tag}</h5>
+          <h3>{projects[currentIndex].title}</h3>
+          <p>{projects[currentIndex].description}</p>
           <div className="tech-icons">
-            <SiDotnet title="ASP.NET" className="icon" />
-            <SiMicrosoftsqlserver title="MS SQL" className="icon" />
-            <FaReact title="React" className="icon" />
+            {projects[currentIndex].tech.map((icon, index) => (
+              <span key={index}>{icon}</span>
+            ))}
           </div>
-          <a href="https://github.com/Thusha01?tab=repositories" className="github-btn" target="_blank" rel="noopener noreferrer">
-            View on GitHub
-          </a>
-        </div>
-
-        <div className="pro">
-          <img src={project2} alt="Portfolio" />
-          <h5>Frontend Development</h5>
-          <h3>This Portfolio Website</h3>
-          <p>I built this website using React.js and Bootstrap.</p>
-          <div className="tech-icons">
-            <SiBootstrap title="Bootstrap" className="icon" />
-            <FaReact title="React" className="icon" />
-          </div>
-          <a href="https://github.com/Thusha01/MyPortfolio" className="github-btn" target="_blank" rel="noopener noreferrer">
-            View on GitHub
-          </a>
-        </div>
-
-        <div className="pro">
-          <img src={project3} alt="Automatic Popcorn Maker" />
-          <h5>1st Year Hardware Project</h5>
-          <h3>Customized Popcorn Maker</h3>
-          <p>We developed a customized Arduino-based popcorn maker that reduces manpower, enhances product efficiency, and increases customer satisfaction.</p>
-          <div className="tech-icons">
-            <SiArduino title="Arduino" className="icon" />
-          </div>
-          <a href="https://github.com/your-profile/popcorn-maker" className="github-btn" target="_blank" rel="noopener noreferrer">
+          <a href={projects[currentIndex].link} className="github-btn" target="_blank" rel="noopener noreferrer">
             View on GitHub
           </a>
         </div>
       </div>
+      <div className="navigation-icons">
+        <FaArrowLeft className="nav-icon" onClick={handleBack} />
+        <FaArrowRight className="nav-icon" onClick={handleNext} />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Projects
+export default Projects;
