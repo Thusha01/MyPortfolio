@@ -31,7 +31,7 @@ export default function About() {
             <a href="https://github.com/Thusha01" target="_blank" rel="noopener noreferrer" className="social-btn">
               <GitHubIcon /> GitHub
             </a>
-            <a href="https://www.hackerrank.com/profile/thusharagas2001" target="_blank" rel="noopener noreferrer" className="social-btn">
+            <a href="https://www.hackerrank.com/profile/Thusharaga" target="_blank" rel="noopener noreferrer" className="social-btn">
               <HackerRankIcon /> HackerRank
             </a>
           </div>
